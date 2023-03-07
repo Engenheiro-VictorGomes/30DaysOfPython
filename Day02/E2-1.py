@@ -71,7 +71,18 @@ area_of_circle = 3.14*userInput**2
 print(f"area of a circle = {area_of_circle}")
 
 # Use the built-in input function to get first name, last name, country and age from a user and store the value to their corresponding variable names
-#TODO
+firstName = input("What is your first name? ")
+lastName = input("and the last name? ")
+country = input("Where are you from? ")
+age = int(input("What is your age? "))
+
+vData = {
+    'firstName':firstName,
+    'lastName':lastName,
+    'country':country,
+    'age':age,
+}
+print(vData)
 
 # Run help('keywords') in Python shell or in your file to check for the Python reserved words or keywords
-#TODO
+help('keywords')
