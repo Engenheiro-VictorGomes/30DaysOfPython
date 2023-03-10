@@ -1,8 +1,7 @@
 # 9.	Cut(slice) out the first word of Coding For All string.
-company = 'Coding for All'
-companyPieces = company.split()
-company = ''
-for i in range(1,len(companyPieces)):
-    company += companyPieces[i]+' '
+expected = ' for All'
 
-print(company)
+# Solution:
+company = 'Coding for All'
+company = company.strip('Coding')
+print(f"Result = {company == expected}")
