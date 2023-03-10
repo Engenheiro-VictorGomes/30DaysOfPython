@@ -1,7 +1,7 @@
 import re
 
 folderToSave = "Day05"
-exercises_file = 'Day5.txt'
+exercises_file = 'Day5List.txt'
 pattern = re.compile('^(?P<number>\d+)\.')
 
 filename = None
@@ -16,7 +16,7 @@ with open(exercises_file, 'r') as file:
             number = match.group('number')
             filename = f'E{number.upper()}.py'
             print(f"Gerou o arquivo {filename}")
-            output = open(f"{folderToSave}\{filename}", 'w')
+            output = open(f"{folderToSave}/{filename}", 'w')
         lineToWrite = f"# {line}"
         output.write(lineToWrite)
         print(f"Preencheu o arquivo {filename} com a linha: {lineToWrite}")

@@ -10,3 +10,10 @@ if not number % 2:
     print(f"{number} is Even")
 else:
     print(f"{number} is not even")
+
+# Solution 02:
+number = 10
+print(f"{number} is even? {number % 2}")
+
+number = 11
+print(f"{number} is even? {number % 2}")
