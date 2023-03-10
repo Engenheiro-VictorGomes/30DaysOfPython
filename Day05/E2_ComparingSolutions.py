@@ -56,9 +56,9 @@ for name, function in globals().copy().items():
         #print(f"{function.__name__} takes {time} to be complete {n} times.")
 
 fastest = min(results, key=results.get)
-print(f"Fastest was: {fastest}, with time of {results[fastest]}")
+print(f"Fastest was: {fastest}, with time of {results[fastest]}s, after repeat {n} times.")
 
-print("% diff")
+print("Comparing to the fastest each function is slower: ")
 for name, time in results.items():
     percent = ((time/results[fastest])-1)*100
-    print(f"{name} =  +{percent:.2f}%")
+    print(f"      {name} =  +{percent:.2f}%")
