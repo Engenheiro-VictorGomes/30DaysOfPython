@@ -1,8 +1,13 @@
 import re
+import os
 
-folderToSave = "Day10"
+folderToSave = "Day11"
 exercises_file = 'List.txt'
 pattern = re.compile('^(?P<number>\d+)\.')
+
+localPath = os.getcwd()
+folderToCreate = os.path.join(localPath, folderToSave)
+os.mkdir(folderToCreate)
 
 filename = None
 output = None
