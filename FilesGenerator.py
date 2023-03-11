@@ -1,6 +1,6 @@
 import re
 
-folderToSave = "Day09"
+folderToSave = "Day10"
 exercises_file = 'List.txt'
 pattern = re.compile('^(?P<number>\d+)\.')
 
