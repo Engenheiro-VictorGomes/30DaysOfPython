@@ -1,10 +1,11 @@
-1. Unpack siblings and parents from family_members
-2. Create fruits, vegetables and animal products tuples. Join the three tuples and assign it to a variable called food_stuff_tp.
-3. Change the about food_stuff_tp tuple to a food_stuff_lt list
-4. Slice out the middle item or items from the food_stuff_tp tuple or food_stuff_lt list.
-5. Slice out the first three items and the last three items from food_staff_lt list
-6. Delete the food_staff_tp tuple completely
-7. Check if an item exists in tuple:
-8. Check if 'Estonia' is a nordic country
-	Check if 'Iceland' is a nordic country
-	nordic_countries = ('Denmark', 'Finland','Iceland', 'Norway', 'Sweden')
+1. Create an empty dictionary called dog
+2. Add name, color, breed, legs, age to the dog dictionary
+3. Create a student dictionary and add first_name, last_name, gender, age, marital status, skills, country, city and address as keys for the dictionary
+4. Get the length of the student dictionary
+5. Get the value of skills and check the data type, it should be a list
+6. Modify the skills values by adding one or two skills
+7. Get the dictionary keys as a list
+8. Get the dictionary values as a list
+9. Change the dictionary to a list of tuples using items() method
+10. Delete one of the items in the dictionary
+11. Delete one of the dictionaries
