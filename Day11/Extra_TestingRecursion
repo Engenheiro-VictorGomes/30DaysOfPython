@@ -1,0 +1,72 @@
+import timeit
+
+def solution01_usingRecursion(value, n):
+    if n == 0:
+        return 1
+    if n == 1:
+        return value
+    else:
+        return value*pow(value, n-1)
+
+def solution02_loopStartingFrom2(value, n):
+    if n == 0:
+        return 1
+    result = value
+    for i in range(2,n+1):
+        result = result*value
+    return result
+
+def solution03_loopStartingFrom1(value, n):
+    if n == 0:
+        return 1
+    result =1
+    for i in range(1,n+1):
+        result = result*value
+    return result
+
+def solution04_native(value, n):
+    return value**n
+
+# Test all solutions:
+testTable = { 
+             (2,0):1,
+             (2,2):4,
+             (2,3):8,
+             (2,4):16,
+             (3,2):9,
+             (3,3):27,
+             (5,1):5,
+             (5,2):25,
+             (5,3):125
+}
+for name, functionToTest in globals().copy().items():
+    if callable(functionToTest):
+        for key, value in testTable.items():
+            assert functionToTest(key[0], key[1]) == value, f'{functionToTest.__name__} Fail for {key}'
+
+print("All solutions works.")
+# 
+n = 1000000
+results = {}
+for name, functionToTest in globals().copy().items():
+    if callable(functionToTest):
+        time = 0
+        for key in testTable:
+            partialFunction = lambda: functionToTest(key[0], key[1])
+            time += timeit.timeit(partialFunction, number=n)
+        results[name] = time
+        print(f"{name} takes {time} to be complete {n} times.")
+
+fastest = min(results, key=results.get)
+print(f"Fastest was: {fastest}, with time of {results[fastest]}s, after repeat {n} times.")
+
+print("Comparing to the fastest each function is slower: ")
+for name, time in results.items():
+    percent = ((time/results[fastest])-1)*100
+    print(f"      {name} =  +{percent:.2f}%")
+
+
+# Conclusion:
+    # Recursion doesn´t see to be a good idea using Python. I suggest testing with others problems and solutions.
+    # Native solution doesn´t have the best performance, but it isn´t that bad, and has other conditions which I didn´t programmed, like x^(1/2) or x^(-1)
+    
