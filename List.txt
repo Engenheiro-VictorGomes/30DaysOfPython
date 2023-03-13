@@ -1,26 +1,42 @@
-1. Explain the difference between map, filter, and reduce.
-2. Explain the difference between higher order function, closure and decorator
-4. Define a call function before map, filter or reduce, see examples.
-5. Use for loop to print each country in the countries list.
-6. Use for to print each name in the names list.
-7. Use for to print each number in the numbers list.
-8. Use map to create a new list by changing each country to uppercase in the countries list
-9. Use map to create a new list by changing each number to its square in the numbers list
-10. Use map to change each name to uppercase in the names list
-11. Use filter to filter out countries containing 'land'.
-12. Use filter to filter out countries having exactly six characters.
-13. Use filter to filter out countries containing six letters and more in the country list.
-14. Use filter to filter out countries starting with an 'E'
-15. Chain two or more list iterators (eg. arr.map(callback).filter(callback).reduce(callback))
-16. Declare a function called get_string_lists which takes a list as a parameter and then returns a list containing only string items.
-17. Use reduce to sum all the numbers in the numbers list.
-18. Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and Iceland are north European countries
-19. Declare a function called categorize_countries that returns a list of countries with some common pattern (you can find the countries list in this repository as countries.js(eg 'land', 'ia', 'island', 'stan')).
-20. Create a function returning a dictionary, where keys stand for starting letters of countries and values are the number of country names starting with that letter.
-21. Declare a get_first_ten_countries function - it returns a list of first ten countries from the countries.js list in the data folder.
-22. Declare a get_last_ten_countries function that returns the last ten countries in the countries list.
+1. What is the most frequent word in the following paragraph?
+    paragraph = 'I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.
+    [
+    (6, 'love'),
+    (5, 'you'),
+    (3, 'can'),
+    (2, 'what'),
+    (2, 'teaching'),
+    (2, 'not'),
+    (2, 'else'),
+    (2, 'do'),
+    (2, 'I'),
+    (1, 'which'),
+    (1, 'to'),
+    (1, 'the'),
+    (1, 'something'),
+    (1, 'if'),
+    (1, 'give'),
+    (1, 'develop'),
+    (1, 'capabilities'),
+    (1, 'application'),
+    (1, 'an'),
+    (1, 'all'),
+    (1, 'Python'),
+    (1, 'If')
+    ]
+2. The position of some particles on the horizontal x-axis are -12, -4, -3 and -1 in the negative direction, 0 at origin, 4 and 8 in the positive direction. Extract these numbers from this whole text and find the distance between the two furthest particles.
+    points = ['-1', '2', '-4', '-3', '-1', '0', '4', '8']
+    sorted_points =  [-4, -3, -1, -1, 0, 2, 4, 8]
+    distance = 8 -(-4) # 12
+3. Write a pattern which identifies if a string is a valid python variable
+    is_valid_variable('first_name') # True
+    is_valid_variable('first-name') # False
+    is_valid_variable('1first_name') # False
+    is_valid_variable('firstname') # True
+4. Clean the following text. After cleaning, count three most frequent words in the string.
 
-23. Use the countries_data.py (https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/countries-data.py) file and follow the tasks below:
-    Sort countries by name, by capital, by population
-    Sort out the ten most spoken languages by location.
-    Sort out the ten most populated countries.
+    sentence = '''%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?'''
+
+    print(clean_text(sentence));
+    I am a teacher and I love teaching There is nothing as more rewarding as educating and empowering people I found teaching more interesting than any other jobs Does this motivate you to be a teacher
+    print(most_frequent_words(cleaned_text)) # [(3, 'I'), (2, 'teaching'), (2, 'teacher')]
