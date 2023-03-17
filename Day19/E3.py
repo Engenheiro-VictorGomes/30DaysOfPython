@@ -25,3 +25,19 @@
 #     {'country': 'United States of America', 'population': 323947000}
 #     ]
 # 
+
+import json
+
+def most_populated_countries(filename = None, n=10):
+    if filename is None:
+        raise ValueError
+    if n <= 0:
+        raise ValueError
+    filepath = filename
+    with open(filepath) as file:
+        countries = json.load(file)
+    countries = sorted(countries,key=lambda x: x['population'], reverse=True)[:n]
+    return [{'name': country['name'], 'population': country['population']} for country in countries]
+
+print(most_populated_countries(filename='./data/countries_data.json', n=10))
+print(most_populated_countries(filename='./data/countries_data.json', n=3))
