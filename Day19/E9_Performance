@@ -1,0 +1,53 @@
+import timeit
+import re
+
+def solution01():
+    counter_python = 0
+    counter_javascript = 0
+    counter_java = 0
+    with open("./data/hacker_news.csv") as file:
+        for line in file:
+            if re.search(r'\bpython\b|\bPython\b',line):
+                counter_python+=1
+            if re.search(r'\bJavaScript\b|\bjavascript\b|\bJavascript\b',line):
+                counter_javascript+=1
+            if re.search(r'\bJava\b|\bjava\b',line):
+                counter_java+=1
+    return [counter_python, counter_javascript, counter_java]
+
+def solution02(rd=None):
+    with open("./data/hacker_news.csv") as file:
+        text = file.read()
+    counter_python = len(re.findall(r'\bpython\b.*\r?\n|\bPython\b.*\r?\n', text))
+    counter_javascript = len(re.findall(r'\bjavascript\b.*\r?\n|\bJavascript\b.*\r?\n|\bJavaScript\b.*\r?\n', text))
+    counter_java = len(re.findall(r'\bjava\b.*\r?\n|\bJava\b.*\r?\n', text))
+    return [counter_python, counter_javascript, counter_java]
+
+def solution03(rd=None):
+    with open("./data/hacker_news.csv") as file:
+        text = file.read()
+    counter_python = len(re.findall(r'\bpython\b.*\r?\n', text, re.IGNORECASE))
+    counter_javascript = len(re.findall(r'\bjavascript\b.*\r?\n', text, re.IGNORECASE))
+    counter_java = len(re.findall(r'\bjava\b.*\r?\n', text, re.IGNORECASE))
+    return [counter_python, counter_javascript, counter_java]
+
+#for name, functionToTest in globals().copy().items():
+#    if callable(functionToTest):
+#        assert functionToTest() == [162,183,58], f'{functionToTest.__name__} Fail'
+# Solution03 will fail, because it can found "JAVA", which are not found by other solutions
+
+n = 10
+results = {}
+for name, functionToTest in globals().copy().items():
+    if callable(functionToTest):
+        time = timeit.timeit(functionToTest, number=n)
+        results[name] = time
+        print(f"{name} takes {time} to be complete {n} times.")
+
+fastest = min(results, key=results.get)
+print(f"Fastest was: {fastest}, with time of {results[fastest]}s, after repeat {n} times.")
+
+print("Comparing to the fastest each function is slower: ")
+for name, time in results.items():
+    percent = ((time/results[fastest])-1)*100
+    print(f"      {name} =  +{percent:.2f}%")
